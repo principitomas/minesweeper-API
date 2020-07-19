@@ -24,3 +24,19 @@ CREATE TABLE square (
     CONSTRAINT pk_square_id PRIMARY KEY (id)
 );
 alter table square add constraint fk_game_game_id foreign key (game_id) references game (id);
+
+--changeset tprincipi:minesweeper-1 Add new field to square table
+ALTER TABLE square ADD COLUMN is_mine BOOLEAN;
+
+CREATE TABLE user_account (
+    id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
+    email VARCHAR(50) UNIQUE,
+    password VARCHAR(50),
+    first_name  VARCHAR(50),
+    last_name  VARCHAR(50),
+    date_of_birth TIMESTAMP,
+    CONSTRAINT pk_game_id PRIMARY KEY (id)
+);
+
+ALTER TABLE game ADD COLUMN user_account_id SMALLINT UNSIGNED NOT NULL;
+ALTER TABLE game ADD CONSTRAINT fk_user_account_id foreign key (user_account_id) references user_account (id);
