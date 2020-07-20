@@ -7,6 +7,9 @@ public class Settings {
     private Integer rows;
     private Integer columns;
 
+    public Settings() {
+    }
+
     public Settings(Integer mines, Integer rows, Integer columns) {
         this.mines = mines;
         this.rows = rows;

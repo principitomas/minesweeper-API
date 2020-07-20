@@ -40,3 +40,8 @@ CREATE TABLE user_account (
 
 ALTER TABLE game ADD COLUMN user_account_id SMALLINT UNSIGNED NOT NULL;
 ALTER TABLE game ADD CONSTRAINT fk_user_account_id foreign key (user_account_id) references user_account (id);
+
+--changeset tprincipi:minesweeper-2 Add user account for testing purposes
+INSERT INTO user_account (email, password, first_name, last_name) VALUE ('test@email.com', '1234','test', 'test');
+--changeset tprincipi:minesweeper-3 Added missing field for adjacent mines
+ALTER TABLE square ADD COLUMN adjacent_mines INTEGER;

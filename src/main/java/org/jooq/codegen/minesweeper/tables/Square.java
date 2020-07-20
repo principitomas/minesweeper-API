@@ -12,7 +12,7 @@ import org.jooq.ForeignKey;
 import org.jooq.Identity;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row8;
+import org.jooq.Row9;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -32,7 +32,7 @@ import org.jooq.types.UShort;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Square extends TableImpl<SquareRecord> {
 
-    private static final long serialVersionUID = -1107623454;
+    private static final long serialVersionUID = -55878596;
 
     /**
      * The reference instance of <code>minesweeper.square</code>
@@ -86,6 +86,11 @@ public class Square extends TableImpl<SquareRecord> {
      * The column <code>minesweeper.square.is_mine</code>.
      */
     public final TableField<SquareRecord, Byte> IS_MINE = createField(DSL.name("is_mine"), org.jooq.impl.SQLDataType.TINYINT, this, "");
+
+    /**
+     * The column <code>minesweeper.square.adjacent_mines</code>.
+     */
+    public final TableField<SquareRecord, Integer> ADJACENT_MINES = createField(DSL.name("adjacent_mines"), org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
      * Create a <code>minesweeper.square</code> table reference
@@ -176,11 +181,11 @@ public class Square extends TableImpl<SquareRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row9 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<UShort, UShort, Byte, Byte, Integer, Integer, String, Byte> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row9<UShort, UShort, Byte, Byte, Integer, Integer, String, Byte, Integer> fieldsRow() {
+        return (Row9) super.fieldsRow();
     }
 }
