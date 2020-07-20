@@ -1,6 +1,7 @@
 package com.hiringtest.minesweeper.api;
 
 import com.hiringtest.minesweeper.domain.game.Action;
+import com.hiringtest.minesweeper.domain.game.FlagType;
 import com.hiringtest.minesweeper.domain.game.Game;
 import com.hiringtest.minesweeper.domain.game.Settings;
 import com.hiringtest.minesweeper.service.games.GamesServiceImpl;
@@ -80,11 +81,11 @@ public class GamesResource {
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successfully revealed square"),
             @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
-            @ApiResponse(code = 400, message = "The col, row vlues are out of the board."),
+            @ApiResponse(code = 400, message = "The col, row values are out of the board."),
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
     @PutMapping(value = "/games/{id}/flag", produces = MediaType.APPLICATION_JSON)
-    public Response flagSquare(@PathVariable Integer id, @RequestParam Integer row, @RequestParam Integer column) {
-        return gamesService.flagSquare(id, column, row, userId);
+    public Response addFlag(@PathVariable Integer id, @RequestParam Integer row, @RequestParam Integer column, @RequestParam FlagType type) {
+        return gamesService.addFlag(id, column, row, type,userId);
     }
 }

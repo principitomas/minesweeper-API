@@ -1,6 +1,7 @@
 package com.hiringtest.minesweeper.service.games;
 
 import com.hiringtest.minesweeper.domain.game.Action;
+import com.hiringtest.minesweeper.domain.game.FlagType;
 import com.hiringtest.minesweeper.domain.game.Settings;
 
 import javax.ws.rs.core.Response;
@@ -12,7 +13,7 @@ public interface GamesService {
 
     Response getGames(Integer useAccountId);
 
-    Response flagSquare(Integer gameId, Integer column, Integer row, Integer accountUserId);
+    Response addFlag(Integer gameId, Integer column, Integer row, FlagType type, Integer accountUserId);
 
     Response getGame(Integer id, Integer userAccountId);
 
