@@ -13,7 +13,9 @@ Liquibase was added for DB creation and database changes tracking
 
 Basic auth implemented using Spring security
 
+
 API is available: http://minesweeperapi-env.eba-h2mmpfhs.us-east-2.elasticbeanstalk.com/swagger-ui.html#/
+**For accessing most of the endpoints you'll need to create a user account credentials by using the /users resource**
 
 Kotlin multiplatform API Client **(WIP)** : https://github.com/principitomas/minesweeper-api-client
 
