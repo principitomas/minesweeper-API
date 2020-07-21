@@ -6,6 +6,7 @@ import com.hiringtest.minesweeper.service.useraccount.UserAccountService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,13 +22,13 @@ public class UserAccountsResource {
     UserAccountService userAccountService;
 
 
-    @ApiOperation(value = "Creates a new user account.", response = Game.class)
+    @ApiOperation(value = "Creates a new user account.", response = UserAccount.class)
     @ApiResponses(value = {
             @ApiResponse(code = 201, message = "User Account successfully created.")
     })
     @PostMapping(value = "/users", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public Response register(@RequestBody UserAccount userAccount) {
-        userAccountService.add(userAccount);
-        return Response.status(Response.Status.CREATED).build();
+        UserAccount createdUserAccount = userAccountService.add(userAccount);
+        return Response.status(Response.Status.CREATED).entity(createdUserAccount).build();
     }
 }
