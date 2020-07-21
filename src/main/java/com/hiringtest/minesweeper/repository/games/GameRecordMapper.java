@@ -13,7 +13,7 @@ public class GameRecordMapper implements RecordMapper<Record, Game> {
     @Override
     public Game map(Record record) {
         Settings settings = new Settings(record.get(GAME.MINES), record.get(GAME.ROWS_NUMBER), record.get(GAME.COLUMNS_NUMBER));
-        Game game = new Game(
+        return new Game(
                 record.get(GAME.ID).intValue(),
                 Status.valueOf(record.get(GAME.STATUS)),
                 settings,
@@ -21,6 +21,5 @@ public class GameRecordMapper implements RecordMapper<Record, Game> {
                 record.get(GAME.USER_ACCOUNT_ID).intValue()
         );
 
-        return null;
     }
 }
