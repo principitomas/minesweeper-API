@@ -1,10 +1,7 @@
 package com.hiringtest.minesweeper.repository.games;
 
 import com.hiringtest.minesweeper.domain.game.Square;
-import com.hiringtest.minesweeper.repository.games.SquareRecordMapper;
-import com.hiringtest.minesweeper.repository.games.SquaresRepository;
 import org.jooq.DSLContext;
-import org.jooq.InsertValuesStep7;
 import org.jooq.InsertValuesStep8;
 import org.jooq.codegen.minesweeper.tables.records.SquareRecord;
 import org.jooq.types.UShort;
@@ -40,8 +37,8 @@ public class SquaresRepositoryImpl implements SquaresRepository {
                 .set(SQUARE.FLAG, square.getFlag() ? Byte.valueOf("1") : Byte.valueOf("0"))
                 .set(SQUARE.REVEALED, square.getRevealed() ? Byte.valueOf("1") : Byte.valueOf("0"))
                 .where(SQUARE.GAME_ID.eq(UShort.valueOf(square.getGameId()))
-                        .and(SQUARE.ROW_NUMBER.eq(square.getRow()))
-                        .and(SQUARE.COLUMN_NUMBER.eq(square.getColumn())))
+                        .and(SQUARE.NUMBER_ROW.eq(square.getRow()))
+                        .and(SQUARE.NUMBER_COLUMN.eq(square.getColumn())))
                 .execute();
         return square;
     }
@@ -49,7 +46,7 @@ public class SquaresRepositoryImpl implements SquaresRepository {
     @Override
     public List<Square> addAll(List<Square> squares) {
         InsertValuesStep8<SquareRecord, UShort, Integer, Integer, Byte, Byte, Byte, String, Integer> insertResultStep = dslContext
-                .insertInto(SQUARE, SQUARE.GAME_ID, SQUARE.ROW_NUMBER, SQUARE.COLUMN_NUMBER, SQUARE.IS_MINE, SQUARE.FLAG, SQUARE.REVEALED, SQUARE.DISPLAY_VALUE,SQUARE.ADJACENT_MINES);
+                .insertInto(SQUARE, SQUARE.GAME_ID, SQUARE.NUMBER_ROW, SQUARE.NUMBER_COLUMN, SQUARE.IS_MINE, SQUARE.FLAG, SQUARE.REVEALED, SQUARE.DISPLAY_VALUE,SQUARE.ADJACENT_MINES);
 
         squares.forEach(sqr ->
                 insertResultStep.values(

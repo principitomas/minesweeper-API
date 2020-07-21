@@ -32,7 +32,7 @@ import org.jooq.types.UShort;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Game extends TableImpl<GameRecord> {
 
-    private static final long serialVersionUID = 261573351;
+    private static final long serialVersionUID = 768574727;
 
     /**
      * The reference instance of <code>minesweeper.game</code>
@@ -58,14 +58,14 @@ public class Game extends TableImpl<GameRecord> {
     public final TableField<GameRecord, String> STATUS = createField(DSL.name("status"), org.jooq.impl.SQLDataType.VARCHAR(25), this, "");
 
     /**
-     * The column <code>minesweeper.game.columns</code>.
+     * The column <code>minesweeper.game.columns_number</code>.
      */
-    public final TableField<GameRecord, Integer> COLUMNS = createField(DSL.name("columns"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<GameRecord, Integer> COLUMNS_NUMBER = createField(DSL.name("columns_number"), org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>minesweeper.game.rows</code>.
+     * The column <code>minesweeper.game.rows_number</code>.
      */
-    public final TableField<GameRecord, Integer> ROWS = createField(DSL.name("rows"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<GameRecord, Integer> ROWS_NUMBER = createField(DSL.name("rows_number"), org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>minesweeper.game.mines</code>.

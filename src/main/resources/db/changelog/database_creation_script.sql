@@ -5,8 +5,8 @@
 CREATE TABLE game (
     id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
     status VARCHAR(25),
-    columns INTEGER,
-    rows INTEGER,
+    columns_number INTEGER,
+    rows_number INTEGER,
     mines INTEGER,
     user_id INTEGER,
     duration INTEGER,
@@ -18,8 +18,8 @@ CREATE TABLE square (
     game_id SMALLINT UNSIGNED NOT NULL,
     revealed BOOLEAN,
     flag BOOLEAN,
-    row_number INTEGER,
-    column_number INTEGER,
+    number_row INTEGER,
+    number_column INTEGER,
     display_value VARCHAR(25),
     CONSTRAINT pk_square_id PRIMARY KEY (id)
 );
@@ -45,3 +45,5 @@ ALTER TABLE game ADD CONSTRAINT fk_user_account_id foreign key (user_account_id)
 INSERT INTO user_account (email, password, first_name, last_name) VALUE ('test@email.com', '1234','test', 'test');
 --changeset tprincipi:minesweeper-3 Added missing field for adjacent mines
 ALTER TABLE square ADD COLUMN adjacent_mines INTEGER;
+
+

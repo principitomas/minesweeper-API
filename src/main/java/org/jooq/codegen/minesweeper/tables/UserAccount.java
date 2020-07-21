@@ -33,7 +33,7 @@ import org.jooq.types.UShort;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserAccount extends TableImpl<UserAccountRecord> {
 
-    private static final long serialVersionUID = -319325414;
+    private static final long serialVersionUID = 85736100;
 
     /**
      * The reference instance of <code>minesweeper.user_account</code>
@@ -76,7 +76,7 @@ public class UserAccount extends TableImpl<UserAccountRecord> {
     /**
      * The column <code>minesweeper.user_account.date_of_birth</code>.
      */
-    public final TableField<UserAccountRecord, LocalDateTime> DATE_OF_BIRTH = createField(DSL.name("date_of_birth"), org.jooq.impl.SQLDataType.LOCALDATETIME.nullable(false).defaultValue(org.jooq.impl.DSL.field("CURRENT_TIMESTAMP", org.jooq.impl.SQLDataType.LOCALDATETIME)), this, "");
+    public final TableField<UserAccountRecord, LocalDateTime> DATE_OF_BIRTH = createField(DSL.name("date_of_birth"), org.jooq.impl.SQLDataType.LOCALDATETIME, this, "");
 
     /**
      * Create a <code>minesweeper.user_account</code> table reference

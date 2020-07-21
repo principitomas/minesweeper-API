@@ -53,6 +53,10 @@ public class GamesServiceImpl implements GamesService {
     public Response revealSquare(Integer gameId, Integer column, Integer row, Integer accountUser) {
         Game game = gamesRepository.findById(gameId, accountUser);
 
+        if (game == null) {
+            return  Response.status(Response.Status.NOT_FOUND).build();
+        }
+
         if (column > game.getSettings().getColumns() - 1 || column > game.getSettings().getRows() - 1) {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
@@ -107,11 +111,19 @@ public class GamesServiceImpl implements GamesService {
 
     public Response getGame(Integer id, Integer useAccountId) {
         Game game = gamesRepository.findById(id, useAccountId);
+        if (game == null) {
+            return  Response.status(Response.Status.NOT_FOUND).build();
+        }
         return  Response.ok().entity(game).build();
     }
 
     public Response applyAction(Integer id, Action action, Integer accountUserId) {
         Game game = gamesRepository.findById(id, accountUserId);
+
+        if (game == null) {
+            return  Response.status(Response.Status.NOT_FOUND).build();
+        }
+
         if (Action.PAUSE.equals(action)) {
             game.setStatus(Status.PAUSED);
         }

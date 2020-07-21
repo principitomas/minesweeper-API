@@ -19,7 +19,7 @@ import org.jooq.types.UShort;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class GameRecord extends UpdatableRecordImpl<GameRecord> implements Record8<UShort, String, Integer, Integer, Integer, Integer, Integer, UShort> {
 
-    private static final long serialVersionUID = -549882437;
+    private static final long serialVersionUID = -943069665;
 
     /**
      * Setter for <code>minesweeper.game.id</code>.
@@ -50,30 +50,30 @@ public class GameRecord extends UpdatableRecordImpl<GameRecord> implements Recor
     }
 
     /**
-     * Setter for <code>minesweeper.game.columns</code>.
+     * Setter for <code>minesweeper.game.columns_number</code>.
      */
-    public void setColumns(Integer value) {
+    public void setColumnsNumber(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>minesweeper.game.columns</code>.
+     * Getter for <code>minesweeper.game.columns_number</code>.
      */
-    public Integer getColumns() {
+    public Integer getColumnsNumber() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>minesweeper.game.rows</code>.
+     * Setter for <code>minesweeper.game.rows_number</code>.
      */
-    public void setRows(Integer value) {
+    public void setRowsNumber(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>minesweeper.game.rows</code>.
+     * Getter for <code>minesweeper.game.rows_number</code>.
      */
-    public Integer getRows() {
+    public Integer getRowsNumber() {
         return (Integer) get(3);
     }
 
@@ -168,12 +168,12 @@ public class GameRecord extends UpdatableRecordImpl<GameRecord> implements Recor
 
     @Override
     public Field<Integer> field3() {
-        return Game.GAME.COLUMNS;
+        return Game.GAME.COLUMNS_NUMBER;
     }
 
     @Override
     public Field<Integer> field4() {
-        return Game.GAME.ROWS;
+        return Game.GAME.ROWS_NUMBER;
     }
 
     @Override
@@ -208,12 +208,12 @@ public class GameRecord extends UpdatableRecordImpl<GameRecord> implements Recor
 
     @Override
     public Integer component3() {
-        return getColumns();
+        return getColumnsNumber();
     }
 
     @Override
     public Integer component4() {
-        return getRows();
+        return getRowsNumber();
     }
 
     @Override
@@ -248,12 +248,12 @@ public class GameRecord extends UpdatableRecordImpl<GameRecord> implements Recor
 
     @Override
     public Integer value3() {
-        return getColumns();
+        return getColumnsNumber();
     }
 
     @Override
     public Integer value4() {
-        return getRows();
+        return getRowsNumber();
     }
 
     @Override
@@ -290,13 +290,13 @@ public class GameRecord extends UpdatableRecordImpl<GameRecord> implements Recor
 
     @Override
     public GameRecord value3(Integer value) {
-        setColumns(value);
+        setColumnsNumber(value);
         return this;
     }
 
     @Override
     public GameRecord value4(Integer value) {
-        setRows(value);
+        setRowsNumber(value);
         return this;
     }
 
@@ -351,13 +351,13 @@ public class GameRecord extends UpdatableRecordImpl<GameRecord> implements Recor
     /**
      * Create a detached, initialised GameRecord
      */
-    public GameRecord(UShort id, String status, Integer columns, Integer rows, Integer mines, Integer userId, Integer duration, UShort userAccountId) {
+    public GameRecord(UShort id, String status, Integer columnsNumber, Integer rowsNumber, Integer mines, Integer userId, Integer duration, UShort userAccountId) {
         super(Game.GAME);
 
         set(0, id);
         set(1, status);
-        set(2, columns);
-        set(3, rows);
+        set(2, columnsNumber);
+        set(3, rowsNumber);
         set(4, mines);
         set(5, userId);
         set(6, duration);

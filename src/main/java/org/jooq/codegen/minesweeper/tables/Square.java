@@ -32,7 +32,7 @@ import org.jooq.types.UShort;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Square extends TableImpl<SquareRecord> {
 
-    private static final long serialVersionUID = -55878596;
+    private static final long serialVersionUID = -900888680;
 
     /**
      * The reference instance of <code>minesweeper.square</code>
@@ -68,14 +68,14 @@ public class Square extends TableImpl<SquareRecord> {
     public final TableField<SquareRecord, Byte> FLAG = createField(DSL.name("flag"), org.jooq.impl.SQLDataType.TINYINT, this, "");
 
     /**
-     * The column <code>minesweeper.square.row_number</code>.
+     * The column <code>minesweeper.square.number_row</code>.
      */
-    public final TableField<SquareRecord, Integer> ROW_NUMBER = createField(DSL.name("row_number"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<SquareRecord, Integer> NUMBER_ROW = createField(DSL.name("number_row"), org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
-     * The column <code>minesweeper.square.column_number</code>.
+     * The column <code>minesweeper.square.number_column</code>.
      */
-    public final TableField<SquareRecord, Integer> COLUMN_NUMBER = createField(DSL.name("column_number"), org.jooq.impl.SQLDataType.INTEGER, this, "");
+    public final TableField<SquareRecord, Integer> NUMBER_COLUMN = createField(DSL.name("number_column"), org.jooq.impl.SQLDataType.INTEGER, this, "");
 
     /**
      * The column <code>minesweeper.square.display_value</code>.

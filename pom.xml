@@ -226,9 +226,9 @@
                     <!-- JDBC connection parameters -->
                     <jdbc>
                         <driver>com.mysql.jdbc.Driver</driver>
-                        <url>jdbc:mysql://localhost:3306/minesweeper</url>
+                        <url>jdbc:mysql://minesweeper.cqbid2lxuazy.us-east-2.rds.amazonaws.com:3306/minesweeper</url>
                         <user>local</user>
-                        <password>1234</password>
+                        <password>12345678</password>
                     </jdbc>
 
                     <!-- Generator parameters -->

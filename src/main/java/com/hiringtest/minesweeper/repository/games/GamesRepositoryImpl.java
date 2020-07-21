@@ -68,7 +68,7 @@ public class GamesRepositoryImpl implements GamesRepository {
 
         if (record != null) {
             List<Square> squares = squaresRepository.findAllByGameId(record.get(GAME.ID).intValue());
-            Settings settings = new Settings(record.get(GAME.MINES), record.get(GAME.ROWS), record.get(GAME.COLUMNS));
+            Settings settings = new Settings(record.get(GAME.MINES), record.get(GAME.ROWS_NUMBER), record.get(GAME.COLUMNS_NUMBER));
             Game game = new Game(
                     record.get(GAME.ID).intValue(),
                     Status.valueOf(record.get(GAME.STATUS)),
@@ -84,7 +84,7 @@ public class GamesRepositoryImpl implements GamesRepository {
 
     @Override
     public Game add(Game game) {
-        int gameId = dslContext.insertInto(GAME, GAME.STATUS, GAME.COLUMNS, GAME.ROWS, GAME.MINES, GAME.USER_ACCOUNT_ID)
+        int gameId = dslContext.insertInto(GAME, GAME.STATUS, GAME.COLUMNS_NUMBER, GAME.ROWS_NUMBER, GAME.MINES, GAME.USER_ACCOUNT_ID)
                 .values(
                         game.getStatus().toString(),
                         game.getSettings().getColumns(),
@@ -105,8 +105,8 @@ public class GamesRepositoryImpl implements GamesRepository {
     public Game update(Game game) {
         dslContext.update(GAME)
                 .set(GAME.STATUS, game.getStatus().toString())
-                .set(GAME.COLUMNS, game.getSettings().getColumns())
-                .set(GAME.ROWS, game.getSettings().getRows())
+                .set(GAME.COLUMNS_NUMBER, game.getSettings().getColumns())
+                .set(GAME.ROWS_NUMBER, game.getSettings().getRows())
                 .set(GAME.MINES, game.getSettings().getMines())
                 .set(GAME.USER_ACCOUNT_ID, UShort.valueOf(game.getUserAccountId()))
                 .execute();

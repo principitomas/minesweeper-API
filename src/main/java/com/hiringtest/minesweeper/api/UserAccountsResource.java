@@ -1,7 +1,6 @@
 package com.hiringtest.minesweeper.api;
 
 import com.hiringtest.minesweeper.domain.game.Game;
-import com.hiringtest.minesweeper.domain.game.Settings;
 import com.hiringtest.minesweeper.domain.useraccount.UserAccount;
 import com.hiringtest.minesweeper.service.useraccount.UserAccountService;
 import io.swagger.annotations.ApiOperation;
@@ -29,6 +28,6 @@ public class UserAccountsResource {
     @PostMapping(value = "/users", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
     public Response register(@RequestBody UserAccount userAccount) {
         userAccountService.add(userAccount);
-        return Response.ok().build();
+        return Response.status(Response.Status.CREATED).build();
     }
 }

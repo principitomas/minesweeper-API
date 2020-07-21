@@ -19,7 +19,7 @@ import org.jooq.types.UShort;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class SquareRecord extends UpdatableRecordImpl<SquareRecord> implements Record9<UShort, UShort, Byte, Byte, Integer, Integer, String, Byte, Integer> {
 
-    private static final long serialVersionUID = -489836536;
+    private static final long serialVersionUID = 1307987534;
 
     /**
      * Setter for <code>minesweeper.square.id</code>.
@@ -78,30 +78,30 @@ public class SquareRecord extends UpdatableRecordImpl<SquareRecord> implements R
     }
 
     /**
-     * Setter for <code>minesweeper.square.row_number</code>.
+     * Setter for <code>minesweeper.square.number_row</code>.
      */
-    public void setRowNumber(Integer value) {
+    public void setNumberRow(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>minesweeper.square.row_number</code>.
+     * Getter for <code>minesweeper.square.number_row</code>.
      */
-    public Integer getRowNumber() {
+    public Integer getNumberRow() {
         return (Integer) get(4);
     }
 
     /**
-     * Setter for <code>minesweeper.square.column_number</code>.
+     * Setter for <code>minesweeper.square.number_column</code>.
      */
-    public void setColumnNumber(Integer value) {
+    public void setNumberColumn(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>minesweeper.square.column_number</code>.
+     * Getter for <code>minesweeper.square.number_column</code>.
      */
-    public Integer getColumnNumber() {
+    public Integer getNumberColumn() {
         return (Integer) get(5);
     }
 
@@ -192,12 +192,12 @@ public class SquareRecord extends UpdatableRecordImpl<SquareRecord> implements R
 
     @Override
     public Field<Integer> field5() {
-        return Square.SQUARE.ROW_NUMBER;
+        return Square.SQUARE.NUMBER_ROW;
     }
 
     @Override
     public Field<Integer> field6() {
-        return Square.SQUARE.COLUMN_NUMBER;
+        return Square.SQUARE.NUMBER_COLUMN;
     }
 
     @Override
@@ -237,12 +237,12 @@ public class SquareRecord extends UpdatableRecordImpl<SquareRecord> implements R
 
     @Override
     public Integer component5() {
-        return getRowNumber();
+        return getNumberRow();
     }
 
     @Override
     public Integer component6() {
-        return getColumnNumber();
+        return getNumberColumn();
     }
 
     @Override
@@ -282,12 +282,12 @@ public class SquareRecord extends UpdatableRecordImpl<SquareRecord> implements R
 
     @Override
     public Integer value5() {
-        return getRowNumber();
+        return getNumberRow();
     }
 
     @Override
     public Integer value6() {
-        return getColumnNumber();
+        return getNumberColumn();
     }
 
     @Override
@@ -331,13 +331,13 @@ public class SquareRecord extends UpdatableRecordImpl<SquareRecord> implements R
 
     @Override
     public SquareRecord value5(Integer value) {
-        setRowNumber(value);
+        setNumberRow(value);
         return this;
     }
 
     @Override
     public SquareRecord value6(Integer value) {
-        setColumnNumber(value);
+        setNumberColumn(value);
         return this;
     }
 
@@ -387,15 +387,15 @@ public class SquareRecord extends UpdatableRecordImpl<SquareRecord> implements R
     /**
      * Create a detached, initialised SquareRecord
      */
-    public SquareRecord(UShort id, UShort gameId, Byte revealed, Byte flag, Integer rowNumber, Integer columnNumber, String displayValue, Byte isMine, Integer adjacentMines) {
+    public SquareRecord(UShort id, UShort gameId, Byte revealed, Byte flag, Integer numberRow, Integer numberColumn, String displayValue, Byte isMine, Integer adjacentMines) {
         super(Square.SQUARE);
 
         set(0, id);
         set(1, gameId);
         set(2, revealed);
         set(3, flag);
-        set(4, rowNumber);
-        set(5, columnNumber);
+        set(4, numberRow);
+        set(5, numberColumn);
         set(6, displayValue);
         set(7, isMine);
         set(8, adjacentMines);

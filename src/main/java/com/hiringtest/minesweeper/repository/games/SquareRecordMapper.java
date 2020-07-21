@@ -12,8 +12,8 @@ public class SquareRecordMapper implements RecordMapper<Record, Square> {
         return new Square(
                 record.get(SQUARE.REVEALED).intValue() == 1,
                 record.get(SQUARE.FLAG).intValue() == 1,
-                record.get(SQUARE.ROW_NUMBER),
-                record.get(SQUARE.COLUMN_NUMBER),
+                record.get(SQUARE.NUMBER_ROW),
+                record.get(SQUARE.NUMBER_COLUMN),
                 record.get(SQUARE.DISPLAY_VALUE),
                 record.get(SQUARE.IS_MINE).intValue() == 1,
                 record.get(SQUARE.GAME_ID).intValue(),
