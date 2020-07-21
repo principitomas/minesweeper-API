@@ -14,11 +14,15 @@ import java.util.Random;
 @Service
 public class GamesServiceImpl implements GamesService {
 
-    @Autowired
-    GamesRepository gamesRepository;
+    private GamesRepository gamesRepository;
+
+    private SquaresService squaresService;
 
     @Autowired
-    SquaresService squaresService;
+    public GamesServiceImpl(final GamesRepository gamesRepository, SquaresService squaresService) {
+        this.gamesRepository = gamesRepository;
+        this.squaresService = squaresService;
+    }
 
     public Response newGame(Settings settings, Integer userAccountId) {
         Random random = new Random();
